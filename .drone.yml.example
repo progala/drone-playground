@@ -1,0 +1,11 @@
+---
+kind: pipeline
+type: docker
+name: drone_demo
+
+steps:
+- name: code_test
+  image: python:3.7
+  commands:
+  - echo "Start test"
+  - python demo.py

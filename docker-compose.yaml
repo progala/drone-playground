@@ -1,0 +1,30 @@
+version: "3.9"
+services:
+  drone_server:
+    image: "drone/drone:latest" 
+    env_file: 
+      - "./env/server.env"
+    volumes:        
+      - type: bind
+        source: ./data
+        target: /data
+    ports:
+      - target: 80
+        published: 8180
+        protocol: tcp
+      - target: 443
+        published: 8143
+        protocol: tcp
+
+  drone_runner:
+      image: "drone/drone-runner-docker:latest" 
+      env_file: 
+        - "./env/runner.env"
+      volumes:
+        - type: bind
+          source: /var/run/docker.sock
+          target: /var/run/docker.sock
+      ports:
+        - target: 3000
+          published: 8300
+          protocol: tcp
