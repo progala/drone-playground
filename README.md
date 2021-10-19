@@ -6,12 +6,12 @@ Default port mappings, which can be changed in the `docker-compose.yaml` file:
 
 - Drone server:
     - 80:8180
-    - 444:8143
+    - 443:8143
 
 - Drone runner:
     - 3000:8300
 
-To start the deployment, configure GitLab and update the ENV files by following the instructions below. Once you're done run the below command:
+To start the deployment, configure GitLab and update the ENV files by following the instructions in the next section. Once you're done run the below command:
 
 `docker-compose up -d`
 
@@ -23,7 +23,7 @@ After successful GitLab login, you should be sent back to Drone where you can si
 
 Once in Dashboard click on `Sync` in the top-right corner. If there is full connectivity between Drone and GitLab your GitLab repositories should appear in Drone.
 
-To kick off a pipeline run Drone will look for `.drone.yml` in the root of your repo.
+To kick off a pipeline run Drone will look for `.drone.yml` in the root of your repository.
 
 You can find a very basic example pipeline in the `.drone.yaml.example` file.
 
@@ -37,7 +37,7 @@ Once you configured GitLab you should have `Application ID` and `Secret` that yo
 
 ## Update variables in ENV files
 
-There are two ENV files, located in `./env/` used in this deployment.
+There are two ENV files, located in `./env/`, used in this deployment.
 
 ### runner.env
 
